@@ -1,8 +1,7 @@
 import pandas as pd
 import json
+import model_utils
 from joblib import load
-
-from models import model_utils
 
 def main():
     
@@ -13,7 +12,7 @@ def main():
     
     metrics = model_utils.evaluate_model(trained_model, X_test_scaled, y_test)
     
-    with open("metrics/scores.json", "w") as f:
+    with open("metrics/scores.json", "w+") as f:
         json.dump(metrics, f)
     
 if __name__ == "__main__":

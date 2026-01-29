@@ -1,14 +1,15 @@
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+import numpy as np
 
 
 def find_best_params(model, grid_param, cv, scoring, X_train, y_train):
     
-    grid_search = GridSearchCV(model, param_grid, cv=cv, scoring=scoring)
+    grid_search = GridSearchCV(model, grid_param, cv=cv, scoring=scoring)
 
     grid_search.fit(X_train, y_train)
     
-    return grid_search.best_param_
+    return grid_search.best_params_
 
 def evaluate_model(model, X_test, y_test):
     

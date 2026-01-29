@@ -1,6 +1,6 @@
 import pandas as pd
+import model_utils
 from joblib import dump
-from models import model_utils
 from sklearn.ensemble import RandomForestRegressor
 
 def main():
@@ -20,7 +20,7 @@ def main():
     best_params = model_utils.find_best_params(rfr, 
                                                 grid_param, 
                                                 5, 
-                                                "mean_squared_error", 
+                                                "neg_mean_squared_error", 
                                                 X_train_scaled, 
                                                 y_train)
 
